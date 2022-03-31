@@ -8,18 +8,22 @@
     tools:context=".Home_Activity">
 
 
-
     <TextView
+        android:id="@+id/SignupDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SignupDetails"
-        android:textStyle="bold"
-        android:text="Signup Details"
-        android:layout_margin="30dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Signup Details"
         android:textColor="@color/teal_200"
         android:textSize="30dp"
-        />
+        android:textStyle="bold" />
+
+
+
     <EditText
         android:id="@+id/fullname"
         android:layout_width="match_parent"
@@ -29,7 +33,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="30dp" />
@@ -42,21 +46,20 @@
         android:background="#30ffffff"
         android:hint="Age"
         android:layout_marginHorizontal="10dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
 
-    <EditText
-        android:id="@+id/gender"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/fullname"
+
+    <Spinner
+        android:id="@+id/BoatSize"
         android:background="#30ffffff"
-        android:hint="Gender"
+        android:layout_below="@id/fullname"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="210dp"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:layout_width="190dp"
+        android:contentDescription="Select Boat Size"
+        android:minHeight="45dp" />
 
     <EditText
         android:id="@+id/emailid"
@@ -67,9 +70,22 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="30dp"
+        />
+    <EditText
+        android:id="@+id/licenseno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/emailid"
+        android:hint="License Number"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
         android:drawablePadding="30dp"
         />
 
@@ -77,12 +93,12 @@
         android:id="@+id/addressline1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/emailid"
+        android:layout_below= "@id/licenseno"
         android:hint="Address Line 1"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="30dp"
@@ -97,7 +113,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="30dp"
@@ -112,11 +128,21 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
-        android:padding="20dp"
+        android:padding="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="30dp"
         />
+    <Spinner
+        android:id="@+id/BoatStand"
+        android:layout_width="390dp"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pincode"
+        android:background="#30ffffff"
+        android:contentDescription="Select Boat Stand"
+        android:minHeight="45dp" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -127,7 +153,7 @@
         android:backgroundTint="@color/teal_200"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
-        android:layout_below="@id/pincode"/>
+        android:layout_below="@id/BoatStand"/>
 
 
 

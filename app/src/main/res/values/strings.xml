@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">MyNaav</string>
+    <string-array name="BoatStand">
+        <item>Boat Stand</item>
+        <item>Assi Ghat</item>
+        <item>Raj Ghat</item>
+        <item>Ahilya Ghat</item>
+        <item>Chet Ghat</item>
+        <item>Kedar Ghat</item>
+        <item>Tulsi Ghat</item>
+        <item>Bhadaini Ghat</item>
+        <item>Janki Ghat</item>
+        <item>Prabhu Ghat</item>
+        <item>Dashashwamedh Ghat</item>
+        <item>Manikarnika Ghat</item>
+        <item>Ramnagar Fort and Ghat</item>
+        <item>Others</item>
+    </string-array>
+    <string-array name="BoatSize">
+        <item>Boat Size</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Others</item>
+    </string-array>
 </resources>
