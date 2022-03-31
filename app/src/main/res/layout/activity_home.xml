@@ -11,7 +11,10 @@
         android:id="@+id/logoImage"
         android:layout_width="299dp"
         android:layout_height="133dp"
-        android:layout_margin="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
         android:src="@drawable/logo3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,15 +27,19 @@
         android:id="@+id/countrycode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/logoImage"
-        android:hint="Country Code"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="30dp"
+        android:layout_below="@id/logoImage"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_place_24"
-        android:drawablePadding="30dp" />
+        android:drawablePadding="30dp"
+        android:hint="Country Code"
+        android:inputType="number"
+        android:padding="30dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/phoneno"
@@ -44,20 +51,24 @@
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
         android:padding="30dp"
+        android:inputType="number"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="30dp"
         />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/Proceedbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Proceedbtn"
-        android:text="PROCEED"
-        android:backgroundTint="@color/teal_200"
+        android:layout_below="@id/phoneno"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:layout_below="@id/phoneno"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="PROCEED" />
 
     <TextView
         android:layout_width="wrap_content"
