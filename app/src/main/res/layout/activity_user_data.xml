@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientcolor"
+    tools:context=".Home_Activity">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/logoImage"-->
+<!--        android:layout_width="299dp"-->
+<!--        android:layout_height="133dp"-->
+<!--        android:layout_margin="50dp"-->
+<!--        android:src="@drawable/logo3"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.127"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/SignupDetails"
+        android:textStyle="bold"
+        android:text="Signup Details"
+        android:layout_margin="30dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/teal_200"
+        android:textSize="30dp"
+        />
+    <EditText
+        android:id="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/SignupDetails"
+        android:hint="Full Name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="30dp" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fullname"
+        android:background="#30ffffff"
+        android:hint="Age"
+        android:layout_marginHorizontal="10dp"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fullname"
+        android:background="#30ffffff"
+        android:hint="Gender"
+        android:layout_marginHorizontal="210dp"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <EditText
+        android:id="@+id/emailid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/age"
+        android:hint="Email Id"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="30dp"
+        />
+
+    <EditText
+        android:id="@+id/addressline1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/emailid"
+        android:hint="Address Line 1"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:drawablePadding="30dp"
+        />
+
+    <EditText
+        android:id="@+id/addressline2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/addressline1"
+        android:hint="Address Line 2"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:drawablePadding="30dp"
+        />
+
+    <EditText
+        android:id="@+id/pincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/addressline2"
+        android:hint="PinCode"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_location_on_24"
+        android:drawablePadding="30dp"
+        />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Proceedbtn"
+        android:text="PROCEED"
+        android:backgroundTint="@color/teal_200"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:layout_below="@id/pincode"/>
+
+
+
+
+
+
+
+</RelativeLayout>
