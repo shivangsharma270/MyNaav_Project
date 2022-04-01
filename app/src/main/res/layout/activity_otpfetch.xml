@@ -41,13 +41,13 @@
             android:layout_marginTop="100dp"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:weightSum="4">
+            android:weightSum="6">
 
             <EditText
                 android:id="@+id/otp_edit_box1"
-                android:layout_width="0dp"
-
-                android:layout_height="60dp"
+                android:layout_width="10dp"
+                android:textColor="#00008B"
+                android:layout_height="50dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_curve_bg"
@@ -58,8 +58,9 @@
 
             <EditText
                 android:id="@+id/otp_edit_box2"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_width="10dp"
+                android:textColor="#00008B"
+                android:layout_height="50dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_curve_bg"
@@ -70,8 +71,9 @@
 
             <EditText
                 android:id="@+id/otp_edit_box3"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_width="10dp"
+                android:textColor="#00008B"
+                android:layout_height="50dp"
                 android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_curve_bg"
@@ -82,14 +84,43 @@
 
             <EditText
                 android:id="@+id/otp_edit_box4"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_width="10dp"
+                android:layout_height="50dp"
+                android:textColor="#00008B"
                 android:layout_weight="1"
                 android:background="@drawable/edittext_curve_bg"
                 android:gravity="center"
                 android:inputType="number"
                 android:maxLength="1"
                 android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/otp_edit_box5"
+                android:layout_width="10dp"
+                android:layout_height="50dp"
+                android:textColor="#00008B"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/edittext_curve_bg"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30sp" />
+
+            <EditText
+                android:id="@+id/otp_edit_box6"
+                android:layout_width="10dp"
+                android:layout_height="50dp"
+                android:textColor="#00008B"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_curve_bg"
+                android:gravity="center"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="30sp" />
+
+
 
 
         </LinearLayout>
