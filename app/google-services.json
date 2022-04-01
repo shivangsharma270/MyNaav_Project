@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "732477576213",
+    "project_id": "mynaav-593e9",
+    "storage_bucket": "mynaav-593e9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732477576213:android:9db4426de203a08a4f6a1c",
+        "android_client_info": {
+          "package_name": "com.example.mynaav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732477576213-fqs1ttdtsatal754le5etp6k3hejf218.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsN76_yUuOeP7w_ig5vEBeQNjjSDVk0ho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732477576213-fqs1ttdtsatal754le5etp6k3hejf218.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
