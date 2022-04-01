@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradientcolor"
+    tools:context=".Home_Activity">
+
+
+    <TextView
+        android:id="@+id/BankDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Owner Bank Details"
+        android:textColor="@color/teal_200"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/AccountNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/BankDetails"
+        android:hint="Account Number"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="30dp" />
+
+    <EditText
+        android:id="@+id/BankName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/AccountNo"
+        android:hint="Bank Name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="30dp" />
+
+    <EditText
+        android:id="@+id/IFSCCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/BankName"
+        android:hint="IFSC Code"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="30dp" />
+
+    <EditText
+        android:id="@+id/AccountHolderName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/IFSCCode"
+        android:hint="Account Holder Name"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="30dp" />
+
+    <EditText
+        android:id="@+id/UPIid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@id/AccountHolderName"
+        android:hint="UPI ID(If available)"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="30dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/proceed1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UPIid"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/teal_200"
+        android:text="PROCEED" />
+
+
+
+
+
+
+</RelativeLayout>
+
+
+
