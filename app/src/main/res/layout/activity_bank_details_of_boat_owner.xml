@@ -26,71 +26,91 @@
         android:id="@+id/AccountNo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/BankDetails"
-        android:hint="Account Number"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_below="@id/BankDetails"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="30dp" />
+        android:drawablePadding="30dp"
+        android:hint="Account Number"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/BankName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/AccountNo"
-        android:hint="Bank Name"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_below="@id/AccountNo"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="30dp" />
+        android:drawablePadding="30dp"
+        android:hint="Bank Name"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/IFSCCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/BankName"
-        android:hint="IFSC Code"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_below="@id/BankName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="30dp" />
+        android:drawablePadding="30dp"
+        android:hint="IFSC Code"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/AccountHolderName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/IFSCCode"
-        android:hint="Account Holder Name"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_below="@id/IFSCCode"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="30dp" />
+        android:drawablePadding="30dp"
+        android:hint="Account Holder Name"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
         android:id="@+id/UPIid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/AccountHolderName"
-        android:hint="UPI ID(If available)"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="10dp"
+        android:layout_below="@id/AccountHolderName"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
-        android:drawablePadding="30dp" />
+        android:drawablePadding="30dp"
+        android:hint="UPI ID(If available)"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/proceed1"
@@ -103,7 +123,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/teal_200"
-        android:text="PROCEED" />
+        android:text="PROCEED"
+        android:textColor="#0D47A1" />
 
 
 
