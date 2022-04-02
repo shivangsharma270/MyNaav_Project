@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "732477576213",
-    "project_id": "mynaav-593e9",
-    "storage_bucket": "mynaav-593e9.appspot.com"
+    "project_number": "290495843822",
+    "project_id": "mynaav-5c043",
+    "storage_bucket": "mynaav-5c043.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:732477576213:android:9db4426de203a08a4f6a1c",
+        "mobilesdk_app_id": "1:290495843822:android:0565f5fbfbcae6f85952ff",
         "android_client_info": {
           "package_name": "com.example.mynaav"
         }
       },
       "oauth_client": [
         {
-          "client_id": "732477576213-fqs1ttdtsatal754le5etp6k3hejf218.apps.googleusercontent.com",
+          "client_id": "290495843822-u40h66fvsuf26d2hf54njvq1quvtrqn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mynaav",
+            "certificate_hash": "4e19639cd1bedcdd2dd8ae16fe8579b4b3d79a81"
+          }
+        },
+        {
+          "client_id": "290495843822-bqshpqoq1u397g965ilvpfaqvp2tochj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCsN76_yUuOeP7w_ig5vEBeQNjjSDVk0ho"
+          "current_key": "AIzaSyDftdZQ9lTG3O4tu9AkTf7GSN4EAA1uKEE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "732477576213-fqs1ttdtsatal754le5etp6k3hejf218.apps.googleusercontent.com",
+              "client_id": "290495843822-bqshpqoq1u397g965ilvpfaqvp2tochj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

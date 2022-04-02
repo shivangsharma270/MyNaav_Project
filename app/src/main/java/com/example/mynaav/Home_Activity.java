@@ -10,7 +10,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -31,36 +30,53 @@ public class Home_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         phoneno=findViewById(R.id.phoneno);
         Proceedbtn=findViewById(R.id.VERIFY);
+
+
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String phonenumber=phoneno.getText().toString();
 
-                boolean check=validateinfo(phonenumber);
-                Proceedbtn.setVisibility(View.INVISIBLE);
-                PhoneAuthProvider.getInstance().verifyPhoneNumber("+91" + phoneno.getText().toString(), 60, TimeUnit.SECONDS,
-                        Home_Activity.this, new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                            @Override
-                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                Proceedbtn.setVisibility(View.VISIBLE);
+                if(!phoneno.getText().toString().trim().isEmpty()){
+                    if((phoneno.getText().toString().trim()).length()==10){
 
-                            }
+                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                "+91" + phoneno.getText().toString(),
+                                60,
+                                TimeUnit.SECONDS,
+                                Home_Activity.this,
+                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                                    @Override
+                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
 
-                            @Override
-                            public void onVerificationFailed(@NonNull FirebaseException e) {
-                                Proceedbtn.setVisibility(View.VISIBLE);
-                                Toast.makeText(Home_Activity.this,"Please check your internet connection",Toast.LENGTH_SHORT).show();
-                            }
+                                    }
 
-                            @Override
-                            public void onCodeSent(@NonNull String backotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                super.onCodeSent(backotp, forceResendingToken);
-                                Intent intent = new Intent(Home_Activity.this, otpfetch.class);
-                                intent.putExtra("mobile",phoneno.getText().toString());
-                                intent.putExtra("backotp",backotp);
-                                startActivity(intent);
-                            }
-                        });
+                                    @Override
+                                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                                        Toast.makeText(Home_Activity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                        Intent intent= new Intent(getApplicationContext(), otpfetch.class);
+                                        intent.putExtra("mobile", phoneno.getText().toString());
+                                        intent.putExtra("backendotp", backendotp);
+                                        startActivity(intent);
+
+                                    }
+                                }
+                        );
+
+
+//
+                    }
+                    else{
+                        Toast.makeText(Home_Activity.this, "Please Enter Correct Mobile Number", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(Home_Activity.this, "Please Enter Mobile Number", Toast.LENGTH_SHORT).show();
+                }
+
 
             }
         });
@@ -68,21 +84,5 @@ public class Home_Activity extends AppCompatActivity {
 
 
 
-    }
-
-
-    private Boolean validateinfo(String phonenumber) {
-        if (phonenumber.length() < 10 || phonenumber.length() > 10) {
-            phoneno.requestFocus();
-            phoneno.setError("Invalid Number");
-            return true;
-        } else {
-
-
-
-
-
-            return false;
-        }
     }
 }
