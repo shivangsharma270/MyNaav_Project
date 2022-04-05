@@ -148,8 +148,8 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/VERIFY"
-        android:text="PROCEED"
+        android:id="@+id/Nextbankdetails"
+        android:text="NEXT"
         android:backgroundTint="@color/teal_200"
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
