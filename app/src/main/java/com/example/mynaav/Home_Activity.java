@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class Home_Activity extends AppCompatActivity {
 
     EditText phoneno;
-    Button Proceedbtn;
+    Button Proceedbtn, demo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,17 @@ public class Home_Activity extends AppCompatActivity {
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
         phoneno=findViewById(R.id.phoneno);
+        demo=findViewById(R.id.demo);
         Proceedbtn=findViewById(R.id.VERIFY);
 
 
+        demo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getApplicationContext(), UserData.class);
+                startActivity(intent);
+            }
+        });
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

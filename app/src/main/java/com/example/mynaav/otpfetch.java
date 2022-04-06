@@ -24,7 +24,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 public class otpfetch extends AppCompatActivity {
     EditText otp_edit_box1,otp_edit_box2,otp_edit_box3,otp_edit_box4,otp_edit_box5,otp_edit_box6,phonenumber;
     Button Verifybtn;
-    String getotpbackend;
+    String getotpbackend, phoneno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,7 @@ public class otpfetch extends AppCompatActivity {
         setContentView(R.layout.activity_otpfetch);
 
         Button Verifybtn = findViewById(R.id.Verifybtn);
+        phoneno=getIntent().getStringExtra("mobile");
         getotpbackend= getIntent().getStringExtra("backendotp");
         phonenumber=findViewById(R.id.phoneno);
         otp_edit_box1 =findViewById(R.id.otp_edit_box1);
@@ -65,6 +66,7 @@ public class otpfetch extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if(task.isSuccessful()){
                                             Intent intent= new Intent(getApplicationContext(), UserData.class);
+                                            intent.putExtra("Phoneno", phoneno);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
                                         }
