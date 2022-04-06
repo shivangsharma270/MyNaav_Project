@@ -50,13 +50,13 @@ public class Boat_Owner_Registeration extends AppCompatActivity {
                 Intent intent= new Intent(getApplicationContext(),BankDetailsOfBoatOwner.class);
                 intent.putExtra("FullName", fullname.getText().toString());
                 intent.putExtra("Age", Age.getText().toString());
-                intent.putExtra("BoatSize", boatsize.toString());
+                intent.putExtra("BoatSize", boatsize.getSelectedItem().toString());
                 intent.putExtra("EmailId", Email.getText().toString());
                 intent.putExtra("LicenseNo", Licenseno.getText().toString());
                 intent.putExtra("Address1", adress1.getText().toString());
                 intent.putExtra("Address2", adress2.getText().toString());
                 intent.putExtra("Pincode", pincode.getText().toString());
-                intent.putExtra("BoatStand", Ghat.toString());
+                intent.putExtra("BoatStand", Ghat.getSelectedItem().toString());
                 startActivity(intent);
             }
         });
