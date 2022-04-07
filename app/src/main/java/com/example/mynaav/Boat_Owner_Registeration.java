@@ -12,16 +12,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 public class Boat_Owner_Registeration extends AppCompatActivity {
-    Button nextbankdetails= (Button) findViewById(R.id.Nextbankdetails);
-    EditText fullname=(EditText) findViewById(R.id.fullname);
-    EditText Age= (EditText) findViewById(R.id.age);
-    Spinner boatsize=(Spinner) findViewById(R.id.BoatSize);
-    EditText Email=(EditText) findViewById(R.id.emailid);
-    EditText Licenseno=(EditText) findViewById(R.id.licenseno);
-    EditText adress1=(EditText) findViewById(R.id.addressline1);
-    EditText adress2=(EditText) findViewById(R.id.addressline2);
-    EditText pincode=(EditText) findViewById(R.id.pincode);
-    Spinner Ghat= (Spinner) findViewById(R.id.BoatStand);
+    Button nextbankdetails;
+    EditText fullname;
+    EditText Age;
+    Spinner boatsize;
+    EditText Email;
+    EditText Licenseno;
+    EditText adress1;
+    EditText adress2;
+    EditText pincode;
+    Spinner Ghat;
 
 
     @Override
@@ -32,7 +32,18 @@ public class Boat_Owner_Registeration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boat_owner_registeration);
 
-        Spinner myspinner= findViewById(R.id.BoatStand);
+        nextbankdetails= findViewById(R.id.Nextbankdetails);
+        fullname=findViewById(R.id.fullname);
+        Age= findViewById(R.id.age);
+        boatsize=findViewById(R.id.BoatSize);
+        Email= findViewById(R.id.emailid);
+        Licenseno= findViewById(R.id.licenseno);
+        adress1= findViewById(R.id.addressline1);
+        adress2= findViewById(R.id.addressline2);
+        pincode= findViewById(R.id.pincode);
+        Ghat= findViewById(R.id.BoatStand);
+
+        Spinner myspinner = findViewById(R.id.BoatStand);
         ArrayAdapter<String> adapter= new ArrayAdapter<String>(Boat_Owner_Registeration.this,
         android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.BoatStand));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

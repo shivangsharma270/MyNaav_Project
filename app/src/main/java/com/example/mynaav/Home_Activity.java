@@ -36,7 +36,7 @@ public class Home_Activity extends AppCompatActivity {
         demo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(), UserData.class);
+                Intent intent= new Intent(getApplicationContext(), Boat_Owner_Registeration.class);
                 startActivity(intent);
             }
         });
