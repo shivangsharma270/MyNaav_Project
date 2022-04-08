@@ -2,6 +2,7 @@ package com.example.mynaav;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -114,6 +115,8 @@ public class UserData extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     Toast.makeText(UserData.this, "Success", Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent(getApplicationContext(), userboatview.class);
+                    startActivity(intent);
 
                 }
 

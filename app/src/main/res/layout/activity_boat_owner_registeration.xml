@@ -58,8 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="210dp"
         android:layout_width="190dp"
+        android:textColor="@color/white"
         android:contentDescription="Select Boat Size"
-        android:minHeight="45dp" />
+        android:minHeight="44dp" />
 
     <EditText
         android:id="@+id/emailid"
@@ -137,6 +138,7 @@
         android:id="@+id/BoatStand"
         android:layout_width="390dp"
         android:padding="10dp"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
         android:layout_below="@+id/pincode"

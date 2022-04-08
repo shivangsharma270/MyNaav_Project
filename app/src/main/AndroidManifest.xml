@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNaav">
+        <activity
+            android:name=".userboatview"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsFetchedofBoatOwner"
+            android:exported="false" />
         <activity
             android:name=".BankDetailsOfBoatOwner"
             android:exported="false" />
