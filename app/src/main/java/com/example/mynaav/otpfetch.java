@@ -65,10 +65,17 @@ public class otpfetch extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if(task.isSuccessful()){
-                                            Intent intent= new Intent(getApplicationContext(), UserData.class);
-                                            intent.putExtra("Phoneno", phoneno);
-                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                            startActivity(intent);
+                                            if(phoneAuthCredential.getProvider().isEmpty()) {
+                                                Intent intent = new Intent(getApplicationContext(), UserData.class);
+                                                intent.putExtra("Phoneno", phoneno);
+                                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Intent intent = new Intent(getApplicationContext(), userboatview.class);
+
+                                                startActivity(intent);
+                                            }
                                         }
                                         else{
                                             Toast.makeText(otpfetch.this,"Enter Correct OTP", Toast.LENGTH_SHORT).show();
