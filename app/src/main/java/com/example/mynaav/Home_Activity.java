@@ -2,8 +2,10 @@ package com.example.mynaav;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import java.lang.*;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,9 +14,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Home_Activity extends AppCompatActivity {
@@ -22,6 +34,8 @@ public class Home_Activity extends AppCompatActivity {
     EditText phoneno;
     Button Proceedbtn, demo;
     TextView textview;
+    String url, exist;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +44,9 @@ public class Home_Activity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
+        exist="0";
+        url ="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
+
         phoneno=findViewById(R.id.phoneno);
         demo=findViewById(R.id.demo);
         Proceedbtn=findViewById(R.id.VERIFY);
@@ -46,13 +63,14 @@ public class Home_Activity extends AppCompatActivity {
         demo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(), Boat_Owner_Registeration.class);
+                Intent intent= new Intent(getApplicationContext(), userboatview.class);
                 startActivity(intent);
             }
         });
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getJSON(url);
 
                 if(!phoneno.getText().toString().trim().isEmpty()){
                     if((phoneno.getText().toString().trim()).length()==10){
@@ -78,6 +96,7 @@ public class Home_Activity extends AppCompatActivity {
                                         Intent intent= new Intent(getApplicationContext(), otpfetch.class);
                                         intent.putExtra("mobile", phoneno.getText().toString());
                                         intent.putExtra("backendotp", backendotp);
+                                        intent.putExtra("userexist", exist);
                                         startActivity(intent);
 
                                     }
@@ -102,5 +121,68 @@ public class Home_Activity extends AppCompatActivity {
 
 
 
+    }
+    private void getJSON(final String urlWebService) {
+        class GetJSON extends AsyncTask<Void, Void, String> {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                try {
+                    loadIntoListView(s);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+
+
+
+                try {
+                    URL url = new URL(urlWebService);
+
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+                    StringBuilder sb = new StringBuilder();
+
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+                    String json;
+
+                    while ((json = bufferedReader.readLine()) != null) {
+
+                        sb.append(json + "\n");
+                    }
+
+                    return sb.toString().trim();
+                } catch (Exception e) {
+                    return null;
+                }
+
+            }
+        }
+
+        GetJSON getJSON = new GetJSON();
+        getJSON.execute();
+    }
+    private void loadIntoListView(String json) throws JSONException {
+        JSONArray jsonArray = new JSONArray(json);
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            JSONObject obj = jsonArray.getJSONObject(i);
+            String temp =  obj.getString("phoneno");
+            if(temp.equals(phoneno.getText().toString())){
+                exist= "1";
+            }
+        }
     }
 }

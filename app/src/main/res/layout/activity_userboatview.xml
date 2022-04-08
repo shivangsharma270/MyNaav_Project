@@ -14,11 +14,18 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="50dp"
+        android:id="@+id/Boatlogo"
         android:layout_centerHorizontal="true"
         android:paddingTop="20dp"
 
         />
 
-
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:id="@+id/boatdata"
+        android:layout_below="@+id/Boatlogo"
+        />
 
 </RelativeLayout>

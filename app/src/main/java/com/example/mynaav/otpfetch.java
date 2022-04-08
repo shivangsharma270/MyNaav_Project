@@ -1,14 +1,15 @@
 package com.example.mynaav;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -18,24 +19,37 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class otpfetch extends AppCompatActivity {
     EditText otp_edit_box1,otp_edit_box2,otp_edit_box3,otp_edit_box4,otp_edit_box5,otp_edit_box6,phonenumber;
     Button Verifybtn;
-    String getotpbackend, phoneno;
+    String getotpbackend, phonen, exist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_otpfetch);
 
+        exist=getIntent().getStringExtra("userexist");
+
+
         Button Verifybtn = findViewById(R.id.Verifybtn);
-        phoneno=getIntent().getStringExtra("mobile");
+        phonen=getIntent().getStringExtra("mobile");
         getotpbackend= getIntent().getStringExtra("backendotp");
         phonenumber=findViewById(R.id.phoneno);
         otp_edit_box1 =findViewById(R.id.otp_edit_box1);
@@ -65,15 +79,16 @@ public class otpfetch extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if(task.isSuccessful()){
-                                            if(phoneAuthCredential.getProvider().isEmpty()) {
+
+                                            if(exist.equals("0")) {
+
                                                 Intent intent = new Intent(getApplicationContext(), UserData.class);
-                                                intent.putExtra("Phoneno", phoneno);
+                                                intent.putExtra("Phoneno", phonen);
                                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                 startActivity(intent);
                                             }
                                             else{
                                                 Intent intent = new Intent(getApplicationContext(), userboatview.class);
-
                                                 startActivity(intent);
                                             }
                                         }
@@ -89,8 +104,6 @@ public class otpfetch extends AppCompatActivity {
                         Toast.makeText(otpfetch.this,"Please Check your internet connection!!!", Toast.LENGTH_SHORT).show();
                     }
 
-
-                    //Toast.makeText(otpfetch.this, "Verify OTP", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(otpfetch.this, "Enter full OTP", Toast.LENGTH_SHORT).show();
@@ -231,4 +244,6 @@ public class otpfetch extends AppCompatActivity {
             }
         });
     }
+
+
 }
