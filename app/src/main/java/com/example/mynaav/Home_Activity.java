@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -20,6 +21,7 @@ public class Home_Activity extends AppCompatActivity {
 
     EditText phoneno;
     Button Proceedbtn, demo;
+    TextView textview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,15 @@ public class Home_Activity extends AppCompatActivity {
         phoneno=findViewById(R.id.phoneno);
         demo=findViewById(R.id.demo);
         Proceedbtn=findViewById(R.id.VERIFY);
+        textview = findViewById(R.id.BoatOwner);
 
+        textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Boat_Owner_Registeration.class);
+                startActivity(intent);
+            }
+        });
 
         demo.setOnClickListener(new View.OnClickListener() {
             @Override
