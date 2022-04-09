@@ -6,13 +6,16 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyNaav">
+        android:theme="@style/Theme.MyNaav"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".AvailableBoats"
+            android:exported="false" />
         <activity
             android:name=".userboatview"
             android:exported="false" />

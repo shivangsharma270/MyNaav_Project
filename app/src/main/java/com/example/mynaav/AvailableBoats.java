@@ -1,24 +1,12 @@
 package com.example.mynaav;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import java.lang.*;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,52 +17,23 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class userboatview extends AppCompatActivity {
+public class AvailableBoats extends AppCompatActivity {
+    String BoatSize, BoatStand;
     ListView listView;
-    EditText Date, Time;
-    Spinner BoatSize, BoatStand;
-    Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_userboatview);
-        listView=findViewById(R.id.boatdata);
-        BoatSize=findViewById(R.id.selectboatsize);
-        BoatStand=findViewById(R.id.selectghat);
-        button=findViewById(R.id.enquireboatbutton);
+        setContentView(R.layout.activity_available_boats);
 
-
-        String url ="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
-
+        BoatSize=getIntent().getStringExtra("BoatS");
+        listView= findViewById(R.id.availableboatsinfo);
+        BoatStand=getIntent().getStringExtra("BoatSt");
+        String url="https://mynaavproject.000webhostapp.com/retreiveboatownerdata.php";
         getJSON(url);
 
-        Spinner myspinner = findViewById(R.id.selectghat);
-        ArrayAdapter<String> adapter= new ArrayAdapter<String>(userboatview.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.BoatStand));
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        myspinner.setAdapter(adapter);
-
-        Spinner myspinner2= findViewById(R.id.selectboatsize);
-        ArrayAdapter<String> adapter1= new ArrayAdapter<String>(userboatview.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.BoatSize));
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        myspinner2.setAdapter(adapter1);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AvailableBoats.class);
-                intent.putExtra("BoatS", BoatSize.getSelectedItem().toString());
-                intent.putExtra("BoatSt", BoatStand.getSelectedItem().toString());
-                startActivity(intent);
-
-            }
-        });
-
-
-
-
     }
+
     private void getJSON(final String urlWebService) {
         class GetJSON extends AsyncTask<Void, Void, String> {
 
@@ -146,23 +105,53 @@ public class userboatview extends AppCompatActivity {
         JSONArray jsonArray = new JSONArray(json);
 
         //creating a string array for listview
-        String[] heroes = new String[jsonArray.length()];
+
+        int j=0;
+        for (int i = 0; i < jsonArray.length(); i++) {
+
+            //getting json object from the json array
+
+            JSONObject obj = jsonArray.getJSONObject(i);
+            String temp1= obj.getString("BoatSize");
+            String temp2= obj.getString("BoatStand");
+
+            if(BoatSize.equals(temp1)){
+                if(BoatStand.equals(temp2)){
+                    j++;
+                }
+
+            }
+            //getting the name from the json object and putting it inside string array
+
+        }
+        String[] hero = new String[j];
+        int i1=0;
 
         //looping through all the elements in json array
         for (int i = 0; i < jsonArray.length(); i++) {
 
             //getting json object from the json array
-            JSONObject obj = jsonArray.getJSONObject(i);
 
+            JSONObject obj = jsonArray.getJSONObject(i);
+            String temp1= obj.getString("BoatSize");
+            String temp2= obj.getString("BoatStand");
+
+            if(BoatSize.equals(temp1)){
+                if(BoatStand.equals(temp2)){
+                    String s1= obj.getString("FullName");
+                    String s2= obj.getString("Address1");
+                  hero[i1] = "Name: "+s1+ "      PhoneNo: " + s2;
+                  i1++;
+                }
+            }
             //getting the name from the json object and putting it inside string array
-            heroes[i] = obj.getString("phoneno");
+
         }
 
         //the array adapter to load data into list
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, heroes);
+        ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(AvailableBoats.this, android.R.layout.simple_list_item_1, hero);
 
         //attaching adapter to listview
-        listView.setAdapter(arrayAdapter);
+        listView.setAdapter(arrayAdapter1);
     }
-
 }

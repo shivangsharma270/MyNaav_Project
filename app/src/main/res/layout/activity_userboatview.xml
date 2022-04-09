@@ -7,25 +7,74 @@
     android:background="@drawable/back"
     tools:context=".userboatview">
 
-    <TextView
+    <ImageView
+        android:id="@+id/Boatlogo"
+        android:layout_width="299dp"
+        android:layout_height="133dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/logofinal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127"
+        tools:ignore="MissingConstraints" />
+
+    <Spinner
+        android:id="@+id/selectboatsize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Boatlogo"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:background="#30ffffff"
+        android:contentDescription="Select Boat Size"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Spinner
+        android:id="@+id/selectghat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectboatsize"
+
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+
+        android:background="#30ffffff"
+        android:contentDescription="Select Ghat"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Boat"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:id="@+id/Boatlogo"
+        android:backgroundTint="@color/teal_200"
+        android:layout_below="@+id/selectghat"
         android:layout_centerHorizontal="true"
-        android:paddingTop="20dp"
+        android:id="@+id/enquireboatbutton"
+        android:hint="Enquire"
+        android:layout_marginTop="25dp"/>
 
-        />
 
     <ListView
+        android:id="@+id/boatdata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:id="@+id/boatdata"
-        android:layout_below="@+id/Boatlogo"
-        />
+        android:layout_below="@+id/enquireboatbutton"
+        android:paddingTop="5dp" />
 
 </RelativeLayout>

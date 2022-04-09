@@ -95,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below= "@id/licenseno"
-        android:hint="Address Line 1"
+        android:hint="Phone Number"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:layout_margin="10dp"
