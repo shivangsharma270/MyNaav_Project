@@ -2,19 +2,24 @@ package com.example.mynaav;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import java.lang.*;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
@@ -23,6 +28,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.lang.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,46 +36,25 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class Home_Activity extends AppCompatActivity {
+public class Home_activity_boat extends AppCompatActivity {
 
     EditText phoneno;
-    Button Proceedbtn, demo;
-    TextView textview;
-    String url, exist;
-
-
-
-
+    Button Proceedbtn;
+    String exist;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home_boat);
+
         exist="0";
-        url ="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
+        String url ="https://mynaavproject.000webhostapp.com/retreiveboatownerdata.php";
 
-        phoneno=findViewById(R.id.phoneno);
-        demo=findViewById(R.id.demo);
-        Proceedbtn=findViewById(R.id.VERIFY);
-        textview = findViewById(R.id.BoatOwner);
 
-        textview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),Home_activity_boat.class);
-                startActivity(intent);
-            }
-        });
 
-        demo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(), userboatview.class);
-                startActivity(intent);
-            }
-        });
+
+        phoneno=findViewById(R.id.phoneno1);
+        Proceedbtn=findViewById(R.id.VERIFY1);
+
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,7 +66,7 @@ public class Home_Activity extends AppCompatActivity {
                                 "+91" + phoneno.getText().toString(),
                                 60,
                                 TimeUnit.SECONDS,
-                                Home_Activity.this,
+                                Home_activity_boat.this,
                                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                                     @Override
                                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
@@ -90,15 +75,15 @@ public class Home_Activity extends AppCompatActivity {
 
                                     @Override
                                     public void onVerificationFailed(@NonNull FirebaseException e) {
-                                        Toast.makeText(Home_Activity.this,e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Home_activity_boat.this,e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override
                                     public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                        Intent intent= new Intent(getApplicationContext(), otpfetch.class);
+                                        Intent intent= new Intent(getApplicationContext(), otp_fetch_boat.class);
                                         intent.putExtra("mobile", phoneno.getText().toString());
                                         intent.putExtra("backendotp", backendotp);
-                                        intent.putExtra("userexist", exist);
+                                        intent.putExtra("boatexist", exist);
                                         startActivity(intent);
 
                                     }
@@ -109,11 +94,11 @@ public class Home_Activity extends AppCompatActivity {
 //
                     }
                     else{
-                        Toast.makeText(Home_Activity.this, "Please Enter Correct Mobile Number", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Home_activity_boat.this, "Please Enter Correct Mobile Number", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
-                    Toast.makeText(Home_Activity.this, "Please Enter Mobile Number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Home_activity_boat.this, "Please Enter Mobile Number", Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -121,17 +106,21 @@ public class Home_Activity extends AppCompatActivity {
         });
 
 
-
-
     }
     private void getJSON(final String urlWebService) {
         class GetJSON extends AsyncTask<Void, Void, String> {
 
+            //this method will be called before execution
+            //you can display a progress bar or something
+            //so that user can understand that he should wait
+            //as network operation may take some time
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
             }
 
+            //this method will be called after execution
+            //so here we are displaying a toast with the json string
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
@@ -143,27 +132,36 @@ public class Home_Activity extends AppCompatActivity {
 
             }
 
+            //in this method we are fetching the json string
             @Override
             protected String doInBackground(Void... voids) {
 
 
 
                 try {
+                    //creating a URL
                     URL url = new URL(urlWebService);
 
+                    //Opening the URL using HttpURLConnection
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
+                    //StringBuilder object to read the string from the service
                     StringBuilder sb = new StringBuilder();
 
+                    //We will use a buffered reader to read the string from service
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
+                    //A simple string to read values from each line
                     String json;
 
+                    //reading until we don't find null
                     while ((json = bufferedReader.readLine()) != null) {
 
+                        //appending it to string builder
                         sb.append(json + "\n");
                     }
 
+                    //finally returning the read string
                     return sb.toString().trim();
                 } catch (Exception e) {
                     return null;
@@ -175,17 +173,25 @@ public class Home_Activity extends AppCompatActivity {
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
     }
-
     private void loadIntoListView(String json) throws JSONException {
+        //creating a json array from the json string
         JSONArray jsonArray = new JSONArray(json);
 
         for (int i = 0; i < jsonArray.length(); i++) {
 
+            //getting json object from the json array
             JSONObject obj = jsonArray.getJSONObject(i);
-            String temp =  obj.getString("phoneno");
-            if(temp.equals(phoneno.getText().toString())){
-                exist= "1";
+            String temp1 = obj.getString("Address1");
+            String temp2 = obj.getString("Validate");
+            if(temp1.equals(phoneno.getText().toString())){
+                exist="1";
+                if(temp2.equals("YES")){
+                    exist="2";
+                }
             }
+
+
         }
     }
+
 }

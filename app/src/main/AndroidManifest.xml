@@ -14,6 +14,15 @@
         android:theme="@style/Theme.MyNaav"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".otp_fetch_boat"
+            android:exported="false" />
+        <activity
+            android:name=".Home_activity_boat"
+            android:exported="false" />
+        <activity
+            android:name=".Boatownerwelcomepage"
+            android:exported="false" />
+        <activity
             android:name=".AvailableBoats"
             android:exported="false" />
         <activity

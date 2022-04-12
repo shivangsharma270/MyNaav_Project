@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BankDetailsOfBoatOwner extends AppCompatActivity {
-    String FullName, Age, EmailId, LicenseNo, Address1, Address2, Pincode, BoatSize, BoatStand;
+    String FullName, Age, EmailId, LicenseNo, Address1, Address2, Pincode, BoatSize, BoatStand, Validate;
     EditText AccountNo, BankName, IFSCCode,AccountHolderName,UPIid;
     Button button;
     private String sendurl="https://mynaavproject.000webhostapp.com/boatownerdetailspush.php";
@@ -52,6 +52,7 @@ public class BankDetailsOfBoatOwner extends AppCompatActivity {
         AccountNo=findViewById(R.id.AccountNo);
         BankName=findViewById(R.id.BankName);
         IFSCCode=findViewById(R.id.IFSCCode);
+        Validate="NO";
         AccountHolderName=findViewById(R.id.AccountHolderName);
         UPIid=findViewById(R.id.UPIid);
         button=findViewById(R.id.proceed1);
@@ -115,6 +116,8 @@ public class BankDetailsOfBoatOwner extends AppCompatActivity {
                 params.put("IFSCCode", IFSCCode.getText().toString());
                 params.put("AccountHolderName", AccountHolderName.getText().toString());
                 params.put("UPIid", UPIid.getText().toString());
+                params.put("Validate", Validate);
+                params.put("Available", "YES");
                 return params;
             }
         };
