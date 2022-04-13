@@ -79,6 +79,7 @@ public class otp_fetch_boat extends AppCompatActivity {
                                             }
                                             else if(exist.equals("2")){
                                                 Intent intent = new Intent(getApplicationContext(), Boatownerwelcomepage.class);
+                                                intent.putExtra("boatid", phonen);
                                                 startActivity(intent);
                                             }
 
