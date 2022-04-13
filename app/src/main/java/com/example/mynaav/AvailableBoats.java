@@ -34,7 +34,7 @@ import java.util.Map;
 public class AvailableBoats extends AppCompatActivity {
     String BoatSize, BoatStand, s1, s2, phoneuser;
     TextView listView, listView1;
-    private String sendurl="https://mynaavproject.000webhostapp.com/consumedboatpush.php";
+    private String sendurl = "https://mynaavproject.000webhostapp.com/consumedboatpush.php";
     private RequestQueue requestQueue;
     private static final String TAG=UserData.class.getSimpleName();
     int success;
@@ -188,10 +188,11 @@ public class AvailableBoats extends AppCompatActivity {
         }){
 
             public Map<String,String> getParams(){
+                String temp="exist";
                 Map<String,String> params=new HashMap<String,String>();
                 params.put("UserID", phoneuser);
                 params.put("BoatID", s2);
-                params.put("extra", "ext");
+                params.put("extra", temp);
                 return params;
             }
         };
