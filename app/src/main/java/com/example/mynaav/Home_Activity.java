@@ -28,7 +28,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.Calendar;
 
 public class Home_Activity extends AppCompatActivity {
 
@@ -40,13 +43,17 @@ public class Home_Activity extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
+
+
         exist="0";
         url ="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
 
@@ -54,6 +61,7 @@ public class Home_Activity extends AppCompatActivity {
         demo=findViewById(R.id.demo);
         Proceedbtn=findViewById(R.id.VERIFY);
         textview = findViewById(R.id.BoatOwner);
+
 
         textview.setOnClickListener(new View.OnClickListener() {
             @Override

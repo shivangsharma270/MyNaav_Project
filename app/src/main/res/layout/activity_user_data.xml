@@ -40,9 +40,10 @@
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/fullname"
+        android:layout_marginHorizontal="10dp"
+        android:inputType="number"
         android:background="#30ffffff"
         android:hint="Age"
-        android:layout_marginHorizontal="10dp"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -50,15 +51,14 @@
     <Spinner
         android:id="@+id/gender"
         android:layout_width="140dp"
-        android:paddingRight="10dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/age"
         android:layout_below="@id/fullname"
+        android:layout_toRightOf="@id/age"
         android:background="#30ffffff"
         android:padding="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        />
+        android:textColorHint="@color/white" />
 
 
     <EditText
@@ -110,16 +110,18 @@
         android:id="@+id/pincode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below= "@id/addressline2"
-        android:hint="PinCode"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_margin="10dp"
-        android:padding="20dp"
+        android:layout_below="@id/addressline2"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_location_on_24"
         android:drawablePadding="30dp"
-        />
+        android:hint="PinCode"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
 
     <com.google.android.material.button.MaterialButton

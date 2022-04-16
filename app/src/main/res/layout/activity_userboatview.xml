@@ -57,17 +57,15 @@
         tools:ignore="TouchTargetSizeCheck" />
 
 
-
-
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/enquireboatbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_200"
         android:layout_below="@+id/selectghat"
         android:layout_centerHorizontal="true"
-        android:id="@+id/enquireboatbutton"
-        android:hint="Enquire"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/teal_200"
+        android:hint="Enquire" />
 
 
     <ListView

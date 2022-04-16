@@ -8,84 +8,115 @@
     tools:context=".AvailableBoats">
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Available Boats"
-        android:id="@+id/text"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        />
-    <TextView
-        android:layout_width="match_parent"
-
-        android:layout_below="@+id/text"
-        android:text="Boat Owner Name"
+        android:layout_marginTop="10dp"
+        android:text="Available Boats"
         android:textColor="@color/white"
-        android:textSize="40dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
+        android:textSize="50dp" />
+
+    <TextView
         android:id="@+id/availableboatsinfo1"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="50dp"
-        android:textAlignment="center"
-        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:padding="10dp"
+        android:text="Boat Owner Name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
 
         />
 
     <TextView
-        android:layout_width="match_parent"
-
-        android:layout_below="@+id/availableboatsinfo1"
-        android:background="#30ffffff"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
         android:id="@+id/availableboatsinfo"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:layout_marginLeft="10dp"
-        android:padding="10dp"
 
-        />
-    <TextView
         android:layout_width="match_parent"
-
-        android:layout_below="@+id/availableboatsinfo"
-        android:text="Boat PhoneNo"
-        android:textColor="@color/white"
-        android:textSize="40dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/availableboatsinfo1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/availableboatsinfo2"
-        android:layout_marginTop="30dp"
-        android:textAlignment="center"
-        android:layout_marginLeft="10dp"
-        android:padding="10dp"
-
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-
-        android:layout_below="@+id/availableboatsinfo2"
         android:background="#30ffffff"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/availableboatsinfo3"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:layout_marginLeft="10dp"
         android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
 
         />
+
+    <TextView
+        android:id="@+id/availableboatsinfo2"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/availableboatsinfo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:text="Boat PhoneNo"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+
+        />
+
+    <TextView
+        android:id="@+id/availableboatsinfo3"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/availableboatsinfo2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+
+        />
+
+
+    <EditText
+        android:id="@+id/noofriders"
+        android:layout_width="157dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/availableboatsinfo3"
+        android:layout_marginLeft="105dp"
+        android:layout_marginTop="24dp"
+        android:hint="Enter no of riders"
+        android:inputType="number"
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/demotextview"
+
+        android:layout_width="0px"
+        android:layout_height="0px"
+
+
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/proceedforpayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noofriders"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/teal_200"
+        android:hint="Proceed for payment" />
 
 </RelativeLayout>
