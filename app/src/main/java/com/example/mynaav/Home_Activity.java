@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.FirebaseException;
@@ -43,6 +44,7 @@ public class Home_Activity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME="mypref";
     private static final String KEY_NO="mobileno";
+    ProgressBar progressBar;
 
 
 
@@ -69,9 +71,10 @@ public class Home_Activity extends AppCompatActivity {
         url ="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
         //phoneno yha se lo
         phoneno=findViewById(R.id.phoneno);
-        demo=findViewById(R.id.demo);
+
         Proceedbtn=findViewById(R.id.VERIFY);
         textview = findViewById(R.id.BoatOwner);
+        progressBar=findViewById(R.id.progressBar1);
 
 
         textview.setOnClickListener(new View.OnClickListener() {
@@ -82,17 +85,13 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        demo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(), userboatview.class);
-                startActivity(intent);
-            }
-        });
+
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                Proceedbtn.setVisibility(View.GONE);
+                progressBar.setVisibility(View.VISIBLE);
 
 
                 getJSON(url);

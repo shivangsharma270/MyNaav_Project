@@ -116,7 +116,15 @@
         android:layout_below="@+id/noofriders"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:backgroundTint="@color/teal_200"
-        android:hint="Proceed for payment" />
+        android:backgroundTint="#f17800"
+        android:text="Proceed for payment"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/demotextview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="TextView" />
 
 </RelativeLayout>

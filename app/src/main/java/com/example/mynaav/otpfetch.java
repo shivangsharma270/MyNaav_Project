@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -134,6 +135,14 @@ public class otpfetch extends AppCompatActivity {
         numberotpmove();
 
     }
+    private void closeKeyboard(){
+        View view=this.getCurrentFocus();
+        if(view!=null){
+            InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+
+        }
+    }
 
     private void numberotpmove() {
         otp_edit_box1.addTextChangedListener(new TextWatcher() {
@@ -250,6 +259,7 @@ public class otpfetch extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int i, int i1, int i2) {
+                closeKeyboard();
 
             }
 

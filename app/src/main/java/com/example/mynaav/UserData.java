@@ -44,7 +44,7 @@ public class UserData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_user_data);
 
         fullnameofuser=findViewById(R.id.fullname);
@@ -114,7 +114,7 @@ public class UserData extends AppCompatActivity {
                         Toast.makeText(UserData.this, jobj.getString(TAG_MESSAGE), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(UserData.this, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserData.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                     Intent intent= new Intent(getApplicationContext(), userboatview.class);
                     startActivity(intent);
 

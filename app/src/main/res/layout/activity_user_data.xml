@@ -8,18 +8,19 @@
     tools:context=".Home_Activity">
 
 
-
     <TextView
+        android:id="@+id/SignupDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/SignupDetails"
-        android:textStyle="bold"
-        android:text="Signup Details"
-        android:layout_margin="30dp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/teal_200"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Signup Details"
+        android:textColor="#ffffff"
         android:textSize="30dp"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/fullname"
@@ -125,14 +126,18 @@
 
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/VERIFY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/VERIFY"
-        android:text="PROCEED"
-        android:backgroundTint="@color/teal_200"
+        android:layout_below="@id/pincode"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
-        android:layout_below="@id/pincode"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#f17800"
+        android:textColor="#ffffff"
+        android:text="PROCEED" />
 
 
 

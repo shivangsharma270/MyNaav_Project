@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +43,7 @@ import java.util.Map;
 
 public class AvailableBoats extends AppCompatActivity implements PaymentResultListener {
     String BoatSize, BoatStand, s1, s2, phoneuser;
-    TextView listView, listView1,demotextview;
+    TextView listView, listView1,demotextview,demotextview2;
     Button Payment;
     EditText noofriders;
     private String sendurl = "https://mynaavproject.000webhostapp.com/consumedboatpush.php";
@@ -55,20 +56,41 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
     SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy G 'at' HH:mm:ss z");
     String currentDateandTime = sdf.format(new Date());
 
+    SimpleDateFormat sdf1=new SimpleDateFormat("dd.MM.yyyy");
+    String currentDate=sdf1.format(new Date());
+
+    Date date = new Date();
+    long timeMilli = date.getTime();
+
+
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_available_boats);
+        //Toast.makeText(this,currentDate, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), String.valueOf(timeMilli), Toast.LENGTH_LONG).show();
+        
+
+
+
 
         phoneuser= getIntent().getStringExtra("p");
         BoatSize=getIntent().getStringExtra("BoatS");
         listView= findViewById(R.id.availableboatsinfo);
         listView1= findViewById(R.id.availableboatsinfo3);
         Payment=findViewById(R.id.proceedforpayment);
-        noofriders=findViewById(R.id.noofriders);
+
         demotextview=findViewById(R.id.demotextview);
+        demotextview2=findViewById(R.id.demotextview2);
+        demotextview2.setText(String.valueOf(timeMilli));
+        listView.requestFocus();
+
 
 
 
@@ -78,8 +100,9 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
         listView.setText(s1);
         listView1.setText(s2);
         requestQueue1= Volley.newRequestQueue(getApplicationContext());
+        noofriders=findViewById(R.id.noofriders);
 
-        String sAmount="100";
+        String sAmount="70";
         int amount=Math.round(Float.parseFloat(sAmount)*100);
 
 
@@ -88,22 +111,33 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
         Payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(noofriders.getText().toString().length()==0){
+                    noofriders.requestFocus();
+                    noofriders.setError("Please fill it properly");
 
-                Checkout checkout=new Checkout();
-                checkout.setKeyID("rzp_test_lNoe3IbHONlY2Q");
-                checkout.setImage(R.drawable.logofirst);
-                JSONObject object=new JSONObject();
-                try {
-                    object.put("name","Android Coding");
-                    object.put("description","Payment for MyNaav");
-                    object.put("theme.color","#F17800");
-                    object.put("currency","INR");
-                    object.put("amount",amount);
-                    object.put("prefill-contact",phoneuser);
-                    checkout.open(AvailableBoats.this,object);
+                }
+                else if(Integer.parseInt(noofriders.getText().toString())>15){
+                    noofriders.requestFocus();
+                    noofriders.setError("Number of passengers exceeds!! Fill less than 15");
+                }
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                else{
+                    Checkout checkout=new Checkout();
+                    checkout.setKeyID("rzp_test_lNoe3IbHONlY2Q");
+                    checkout.setImage(R.drawable.logofirst);
+                    JSONObject object=new JSONObject();
+                    try {
+                        object.put("name","Android Coding");
+                        object.put("description","Payment for MyNaav");
+                        object.put("theme.color","#F17800");
+                        object.put("currency","INR");
+                        object.put("amount",amount*(Integer.parseInt(noofriders.getText().toString())));
+                        object.put("prefill-contact",phoneuser);
+                        checkout.open(AvailableBoats.this,object);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
 
 
@@ -148,7 +182,7 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
                         Toast.makeText(AvailableBoats.this, jobj.getString(TAG_MESSAGE), Toast.LENGTH_SHORT).show();
                     }
                 } catch (Exception e) {
-                    Toast.makeText(AvailableBoats.this, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AvailableBoats.this, "Boat booked successfully", Toast.LENGTH_LONG).show();
 
 
                 }
@@ -169,6 +203,8 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
                 params.put("BoatID", s2);
                 params.put("extra",currentDateandTime);
                 params.put("paymentid",demotextview.getText().toString());
+                params.put("onlydate",currentDate);
+                params.put("onlytime",demotextview2.getText().toString());
                 return params;
             }
         };

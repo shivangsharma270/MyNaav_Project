@@ -64,8 +64,9 @@
         android:layout_below="@+id/selectghat"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:backgroundTint="@color/teal_200"
-        android:hint="Enquire" />
+        android:backgroundTint="#f17800"
+        android:textColor="#ffffff"
+        android:text="Enquire" />
 
 
     <ListView

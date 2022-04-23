@@ -3,9 +3,11 @@ package com.example.mynaav;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,11 +37,43 @@ public class userboatview extends AppCompatActivity {
     EditText Date, Time;
     Spinner BoatSize, BoatStand;
     Button button;
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME="mypref";
+    private static final String KEY_NO="mobileno";
+    int counter=0;
+    @Override
+    public void onBackPressed(){
+        counter++;
+        if(counter==1){
+            Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+
+        }
+        else if(counter==2){
+            finishAffinity();
+        }
+
+
+
+    }
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_userboatview);
-        phoneuser= getIntent().getStringExtra("phoneno");
+
+        sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+
+
+        String phonenoofsp=sharedPreferences.getString(KEY_NO,null);
+
+
+        phoneuser= phonenoofsp;
         listView=findViewById(R.id.boatdata);
         BoatSize=findViewById(R.id.selectboatsize);
         BoatStand=findViewById(R.id.selectghat);
