@@ -2,7 +2,9 @@ package com.example.mynaav;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
@@ -36,17 +38,28 @@ public class otpfetch extends AppCompatActivity {
     EditText otp_edit_box1,otp_edit_box2,otp_edit_box3,otp_edit_box4,otp_edit_box5,otp_edit_box6,phonenumber;
     Button Verifybtn;
     String getotpbackend, phonen, exist;
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME="mypref";
+    private static final String KEY_NO="mobileno";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_otpfetch);
+        sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+        String mobileno=sharedPreferences.getString(KEY_NO,null);
+
+
+
+
+
+
         exist=getIntent().getStringExtra("userexist");
-
-
         Verifybtn = findViewById(R.id.Verifybtn);
         phonen=getIntent().getStringExtra("mobile");
         getotpbackend= getIntent().getStringExtra("backendotp");
@@ -79,12 +92,15 @@ public class otpfetch extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if(task.isSuccessful()){
 
+
                                             if(exist.equals("1")) {
+                                                SharedPreferences.Editor editor=sharedPreferences.edit();
+                                                editor.putString(KEY_NO,phonen);
+                                                editor.apply();
                                                 Intent intent = new Intent(getApplicationContext(), userboatview.class);
                                                 intent.putExtra("phoneno", phonen);
                                                 startActivity(intent);
                                             }
-
                                             else{
                                                 Intent intent = new Intent(getApplicationContext(), UserData.class);
                                                 intent.putExtra("Phoneno", phonen);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.lang.*;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +40,10 @@ public class Home_Activity extends AppCompatActivity {
     Button Proceedbtn, demo;
     TextView textview;
     String url, exist;
+    SharedPreferences sharedPreferences;
+    private static final String SHARED_PREF_NAME="mypref";
+    private static final String KEY_NO="mobileno";
+
 
 
 
@@ -52,11 +57,17 @@ public class Home_Activity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
+        sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+        String mobileno=sharedPreferences.getString(KEY_NO,null);
+        if(mobileno!=null){
+            Intent intent=new Intent(Home_Activity.this,userboatview.class);
+            startActivity(intent);
+        }
 
 
         exist="0";
         url ="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
-
+        //phoneno yha se lo
         phoneno=findViewById(R.id.phoneno);
         demo=findViewById(R.id.demo);
         Proceedbtn=findViewById(R.id.VERIFY);
@@ -81,6 +92,9 @@ public class Home_Activity extends AppCompatActivity {
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
                 getJSON(url);
                 if(!phoneno.getText().toString().trim().isEmpty()){
                     if((phoneno.getText().toString().trim()).length()==10){
@@ -103,10 +117,13 @@ public class Home_Activity extends AppCompatActivity {
 
                                     @Override
                                     public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+
+
                                         Intent intent= new Intent(getApplicationContext(), otpfetch.class);
                                         intent.putExtra("mobile", phoneno.getText().toString());
                                         intent.putExtra("backendotp", backendotp);
                                         intent.putExtra("userexist", exist);
+
                                         startActivity(intent);
 
                                     }
