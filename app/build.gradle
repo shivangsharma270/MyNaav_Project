@@ -38,6 +38,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.android.volley:volley:1.2.0'
     implementation 'com.razorpay:checkout:1.6.19'
+    implementation 'com.razorpay:checkout:1.6.19'
     testImplementation 'junit:junit:4.13.2'
     implementation('androidx.browser:browser:1.4.0')
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

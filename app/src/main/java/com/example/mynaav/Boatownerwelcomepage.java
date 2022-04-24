@@ -1,14 +1,17 @@
 package com.example.mynaav;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,10 +28,12 @@ public class Boatownerwelcomepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boatownerwelcomepage);
-        exist="0";
+        exist="NO RIDES NOW";
         text=findViewById(R.id.text1);
         text2=findViewById(R.id.text2);
         boatid=getIntent().getStringExtra("boatid");
+        name="NO USER";
+        phonen="NO DETAILS TO DISPLAY";
         String url="https://mynaavproject.000webhostapp.com/consumedboatfetch.php";
         getJSON(url);
     }
@@ -47,6 +52,7 @@ public class Boatownerwelcomepage extends AppCompatActivity {
 
             //this method will be called after execution
             //so here we are displaying a toast with the json string
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
@@ -99,6 +105,7 @@ public class Boatownerwelcomepage extends AppCompatActivity {
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void loadIntoListView(String json) throws JSONException {
         //creating a json array from the json string
         JSONArray jsonArray = new JSONArray(json);
@@ -112,17 +119,22 @@ public class Boatownerwelcomepage extends AppCompatActivity {
             JSONObject obj = jsonArray.getJSONObject(i);
             String temp1= obj.getString("BoatID");
             String temp2=obj.getString("UserID");
-            if(temp1.equals(boatid)){
-                exist=temp2;
-                Toast.makeText(this, "Your ride", Toast.LENGTH_SHORT).show();
+            String temp3= obj.getString("onlydate");
+            String temp4= obj.getString("onlytime");
+            long result = Long.parseLong(temp4);
 
+            if((Math.abs(System.currentTimeMillis()-result)<600000) && (temp3.equals((java.time.LocalDate.now()).toString()))){
+                if(temp1.equals(boatid)){
+                    exist=temp2;
+                    Toast.makeText(this, "Your ride", Toast.LENGTH_SHORT).show();
+                }
             }
-
 
             //getting the name from the json object and putting it inside string array
         }
         String url="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
         getJSON1(url);
+
     }
 
     private void getJSON1(final String urlWebService) {
@@ -221,9 +233,9 @@ public class Boatownerwelcomepage extends AppCompatActivity {
             @Override
             public void run() {
                 // data request
-                handler.postDelayed(this, 5000);
+                handler.postDelayed(this, 1000);
             }
         };
-        handler.postDelayed(refresh, 5000);
+        handler.postDelayed(refresh, 1000);
     }
 }
