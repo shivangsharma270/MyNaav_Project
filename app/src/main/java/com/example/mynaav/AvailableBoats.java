@@ -127,7 +127,7 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
                     checkout.setImage(R.drawable.logofirst);
                     JSONObject object=new JSONObject();
                     try {
-                        object.put("name","Android Coding");
+                        object.put("name","MyNaav");
                         object.put("description","Payment for MyNaav");
                         object.put("theme.color","#F17800");
                         object.put("currency","INR");
