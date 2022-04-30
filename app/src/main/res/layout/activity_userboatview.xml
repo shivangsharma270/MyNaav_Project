@@ -7,6 +7,8 @@
     android:background="@drawable/back"
     tools:context=".userboatview">
 
+
+
     <ImageView
         android:id="@+id/Boatlogo"
         android:layout_width="299dp"
@@ -65,15 +67,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:backgroundTint="#f17800"
-        android:textColor="#ffffff"
-        android:text="Enquire" />
+        android:text="Enquire"
+        android:textColor="#ffffff" />
 
-
-    <ListView
-        android:id="@+id/boatdata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/enquireboatbutton"
-        android:paddingTop="5dp" />
 
 </RelativeLayout>

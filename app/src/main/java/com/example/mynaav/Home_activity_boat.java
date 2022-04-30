@@ -4,12 +4,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,10 +44,26 @@ public class Home_activity_boat extends AppCompatActivity {
     EditText phoneno;
     Button Proceedbtn;
     String exist;
+    SharedPreferences sharedPreferencesboat;
+    private static final String SHARED_PREF_NAME="myprefboat";
+    private static final String KEY_NO="mobilenoboat";
+    ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_home_boat);
+
+
+        sharedPreferencesboat=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+        String mobileno=sharedPreferencesboat.getString(KEY_NO,null);
+        if(mobileno!=null){
+            Intent intent=new Intent(Home_activity_boat.this,Boatownerwelcomepage.class);
+            startActivity(intent);
+        }
+
 
         exist="0";
         String url ="https://mynaavproject.000webhostapp.com/retreiveboatownerdata.php";
@@ -54,10 +73,13 @@ public class Home_activity_boat extends AppCompatActivity {
 
         phoneno=findViewById(R.id.phoneno1);
         Proceedbtn=findViewById(R.id.VERIFY1);
+        progressBar=findViewById(R.id.progressBar1);
 
         Proceedbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Proceedbtn.setVisibility(View.GONE);
+                progressBar.setVisibility(View.VISIBLE);
                 getJSON(url);
                 if(!phoneno.getText().toString().trim().isEmpty()){
                     if((phoneno.getText().toString().trim()).length()==10){

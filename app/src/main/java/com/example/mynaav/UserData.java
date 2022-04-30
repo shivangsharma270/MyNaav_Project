@@ -71,6 +71,8 @@ public class UserData extends AppCompatActivity {
                 }
 
 
+
+
                     //Toast.makeText(UserData.this, "Enter your phone no correctly!!!", Toast.LENGTH_SHORT).show();
                 else if (pincodeofuser.length() != 6) {
                     pincodeofuser.requestFocus();

@@ -64,7 +64,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
-        android:text="Boat PhoneNo"
+        android:text="Boat Owner PhoneNo"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30dp"
@@ -74,7 +74,7 @@
     <TextView
         android:id="@+id/availableboatsinfo3"
 
-        android:layout_width="300dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/availableboatsinfo2"
         android:layout_marginLeft="10dp"
@@ -88,35 +88,34 @@
         android:textSize="30dp"
 
         />
+
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/call"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:drawableEnd="@drawable/ic_baseline_phone_24"
-        android:background="#30fffffff"
         android:layout_below="@id/availableboatsinfo2"
 
-        android:layout_toRightOf="@id/availableboatsinfo3"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"
 
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="If boat not available then refresh: "
-        android:layout_below="@id/availableboatsinfo3"
-        android:layout_toLeftOf="@id/b11"
-        android:textColor="#ffffff"
-        android:layout_marginLeft="10dp"/>
+
+        android:layout_marginEnd="30dp"
+
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@id/availableboatsinfo3"
+        android:background="#00000000"
+        android:drawableEnd="@drawable/callbutton" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/b11"
+        android:id="@+id/refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/noofriders"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#f17800"
         android:text="REFRESH"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/availableboatsinfo3"
-        />
-
+        android:textColor="#ffffff" />
 
 
     <EditText
@@ -124,6 +123,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/availableboatsinfo3"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="105dp"
         android:layout_marginTop="24dp"
         android:hint="Enter no of riders"
@@ -144,10 +144,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/noofriders"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="105dp"
         android:backgroundTint="#f17800"
         android:text="Proceed for payment"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/demotextview2"

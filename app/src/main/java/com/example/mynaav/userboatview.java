@@ -1,6 +1,9 @@
 package com.example.mynaav;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -40,7 +43,8 @@ public class userboatview extends AppCompatActivity {
     String phoneuser, s1,s2;
     EditText Date, Time;
     Spinner BoatSize, BoatStand;
-    Button button;
+    Button button,logout;
+
     SharedPreferences sharedPreferences;
     private static final String SHARED_PREF_NAME="mypref";
     private static final String KEY_NO="mobileno";
@@ -78,10 +82,13 @@ public class userboatview extends AppCompatActivity {
 
 
         phoneuser= phonenoofsp;
-        listView=findViewById(R.id.boatdata);
+        //listView=findViewById(R.id.boatdata);
         BoatSize=findViewById(R.id.selectboatsize);
         BoatStand=findViewById(R.id.selectghat);
         button=findViewById(R.id.enquireboatbutton);
+
+
+
         String url="https://mynaavproject.000webhostapp.com/retreiveboatownerdata.php";
 
 
@@ -107,7 +114,10 @@ public class userboatview extends AppCompatActivity {
 
 
 
+
+
     }
+
     private void getJSON(final String urlWebService) {
         class GetJSON extends AsyncTask<Void, Void, String> {
 

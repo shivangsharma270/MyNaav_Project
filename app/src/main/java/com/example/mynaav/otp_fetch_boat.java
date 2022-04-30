@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -34,10 +36,16 @@ public class otp_fetch_boat extends AppCompatActivity {
     EditText otp_edit_box1,otp_edit_box2,otp_edit_box3,otp_edit_box4,otp_edit_box5,otp_edit_box6,phonenumber;
     Button Verifybtn;
     String getotpbackend, phonen, exist;
+    SharedPreferences sharedPreferencesboat;
+    private static final String SHARED_PREF_NAME="myprefboat";
+    private static final String KEY_NO="mobilenoboat";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_otp_fetch_boat);
         exist=getIntent().getStringExtra("boatexist");
         Toast.makeText(this, exist, Toast.LENGTH_SHORT).show();
@@ -74,6 +82,9 @@ public class otp_fetch_boat extends AppCompatActivity {
                                         if(task.isSuccessful()){
 
                                             if(exist.equals("1")) {
+                                                SharedPreferences.Editor editor=sharedPreferencesboat.edit();
+                                                editor.putString(KEY_NO,phonen);
+                                                editor.apply();
                                                 Intent intent = new Intent(getApplicationContext(), DetailsFetchedofBoatOwner.class);
                                                 startActivity(intent);
                                             }

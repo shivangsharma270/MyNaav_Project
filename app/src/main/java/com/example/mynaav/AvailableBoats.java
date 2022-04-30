@@ -4,7 +4,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import java.lang.*;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -44,7 +46,7 @@ import java.util.Map;
 public class AvailableBoats extends AppCompatActivity implements PaymentResultListener {
     String BoatSize, BoatStand, s1, s2, phoneuser;
     TextView listView, listView1,demotextview,demotextview2;
-    Button Payment;
+    Button Payment,call,refresh;
     EditText noofriders;
     private String sendurl = "https://mynaavproject.000webhostapp.com/consumedboatpush.php";
     private RequestQueue requestQueue1;
@@ -75,7 +77,17 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
         setContentView(R.layout.activity_available_boats);
         //Toast.makeText(this,currentDate, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(), String.valueOf(timeMilli), Toast.LENGTH_LONG).show();
-        
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setTitle("Information!!!");
+        builder.setMessage("Call the boat owners before the payment. In case of any payment loss, company is not responsible at all.")
+                .setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+        builder.show();
+
 
 
 
@@ -90,6 +102,8 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
         demotextview2=findViewById(R.id.demotextview2);
         demotextview2.setText(String.valueOf(timeMilli));
         listView.requestFocus();
+        call=findViewById(R.id.call);
+        refresh=findViewById(R.id.refresh);
 
 
 
@@ -102,8 +116,28 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
         requestQueue1= Volley.newRequestQueue(getApplicationContext());
         noofriders=findViewById(R.id.noofriders);
 
+
         String sAmount="70";
         int amount=Math.round(Float.parseFloat(sAmount)*100);
+
+
+        call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:"+listView1.getText().toString()));
+                startActivity(callIntent);
+
+            }
+        });
+
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AvailableBoats.this, userboatview.class);
+                finish();
+            }
+        });
 
 
 
@@ -165,7 +199,9 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
 
     }
 
+    public void openDialog(){
 
+    }
 
 
 
