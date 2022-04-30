@@ -181,7 +181,7 @@ public class userboatview extends AppCompatActivity {
         //creating a string array for listview
 
         //looping through all the elements in json array
-        int min=0;
+        int min=1;
         int max=0;
 
 
@@ -202,33 +202,41 @@ public class userboatview extends AppCompatActivity {
             }
             //getting the name from the json object and putting it inside string array
         }
-        int range= max-min+1;
-        int rand = (int)(Math.random()* range)+min;
-        String[] arr =new String[max];
-        String[] arr1 =new String[max];
-        int count=0;
-        int count1=0;
-        for (int i = 0; i < jsonArray.length(); i++) {
+        if(max==0){
+
+            s1="No Available Boats at this moment.";
+            s2="No data Found.";
+        }
+        else{
+            int range= max-min+1;
+            int rand = (int)(Math.random()* range)+min;
+            String[] arr =new String[max];
+            String[] arr1 =new String[max];
+            int count=0;
+            int count1=0;
+            for (int i = 0; i < jsonArray.length(); i++) {
 
 
-            JSONObject obj = jsonArray.getJSONObject(i);
-            String temp1= obj.getString("BoatSize");
-            String temp2= obj.getString("BoatStand");
-            String temp3= obj.getString("Validate");
+                JSONObject obj = jsonArray.getJSONObject(i);
+                String temp1= obj.getString("BoatSize");
+                String temp2= obj.getString("BoatStand");
+                String temp3= obj.getString("Validate");
 
-            if(temp1.equals(BoatSize.getSelectedItem().toString())){
-                if(temp2.equals(BoatStand.getSelectedItem().toString())){
-                    if(temp3.equals("YES")) {
-                        arr[count++]= obj.getString("FullName");
-                        arr1[count1++]= obj.getString("Address1");
+                if(temp1.equals(BoatSize.getSelectedItem().toString())){
+                    if(temp2.equals(BoatStand.getSelectedItem().toString())){
+                        if(temp3.equals("YES")) {
+                            arr[count++]= obj.getString("FullName");
+                            arr1[count1++]= obj.getString("Address1");
 
+                        }
                     }
                 }
+                //getting the name from the json object and putting it inside string array
             }
-            //getting the name from the json object and putting it inside string array
+            s1=arr[rand-1];
+            s2=arr1[rand-1];
         }
-        s1=arr[rand];
-        s2=arr1[rand];
+
         Intent intent = new Intent(getApplicationContext(), AvailableBoats.class);
         intent.putExtra("s1", s1);
         intent.putExtra("s2", s2);
