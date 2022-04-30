@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mynaav" >
+    package="com.example.mynaav">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,7 +13,13 @@
         android:roundIcon="@mipmap/iconforapp"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyNaav"
-        android:usesCleartextTraffic="true" >
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".User_Privacy_Policy"
+            android:exported="false" />
+        <activity
+            android:name=".Boat_Privacy_Policy"
+            android:exported="false" />
         <activity
             android:name=".otp_fetch_boat"
             android:exported="false" />
@@ -49,7 +55,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
