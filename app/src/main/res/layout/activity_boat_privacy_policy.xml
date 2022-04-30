@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/back"
     android:layout_height="match_parent"
-    tools:context=".Boat_Privacy_Policy">
+    tools:context=".User_Privacy_Policy">
 
     <ImageView
         android:id="@+id/logoImage"
@@ -23,22 +23,21 @@
         app:layout_constraintVertical_bias="0.127"
         tools:ignore="MissingConstraints" />
 
- <ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-     android:layout_below="@+id/logoImage"
-     android:textAlignment="center">
-
-
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textColor="#ffff"
-        android:text="@string/TnC_full"
+        android:layout_below="@+id/logoImage"
+        android:textAlignment="center">
 
-        />
- </ScrollView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/TnC1"
+            android:textColor="#ffff"
+
+            />
+    </ScrollView>
 
 </RelativeLayout>
