@@ -25,6 +25,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.lang.*;
+import java.math.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -66,7 +68,7 @@ public class userboatview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_userboatview);
 
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
@@ -200,11 +202,12 @@ public class userboatview extends AppCompatActivity {
             }
             //getting the name from the json object and putting it inside string array
         }
-        int range=max-min+1;
-        int rand=(int)(Math.random()*range)+min;
+        int range= max-min+1;
+        int rand = (int)(Math.random()* range)+min;
         String[] arr =new String[max];
         String[] arr1 =new String[max];
         int count=0;
+        int count1=0;
         for (int i = 0; i < jsonArray.length(); i++) {
 
 
@@ -217,7 +220,7 @@ public class userboatview extends AppCompatActivity {
                 if(temp2.equals(BoatStand.getSelectedItem().toString())){
                     if(temp3.equals("YES")) {
                         arr[count++]= obj.getString("FullName");
-                        arr1[count++]= obj.getString("Address1");
+                        arr1[count1++]= obj.getString("Address1");
 
                     }
                 }
