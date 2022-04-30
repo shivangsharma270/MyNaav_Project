@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/availableboatsinfo1"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/availableboatsinfo"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:padding="10dp"
@@ -74,11 +74,11 @@
     <TextView
         android:id="@+id/availableboatsinfo3"
 
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/availableboatsinfo2"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
@@ -88,11 +88,40 @@
         android:textSize="30dp"
 
         />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:drawableEnd="@drawable/ic_baseline_phone_24"
+        android:background="#30fffffff"
+        android:layout_below="@id/availableboatsinfo2"
+
+        android:layout_toRightOf="@id/availableboatsinfo3"
+
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="If boat not available then refresh: "
+        android:layout_below="@id/availableboatsinfo3"
+        android:layout_toLeftOf="@id/b11"
+        android:textColor="#ffffff"
+        android:layout_marginLeft="10dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/b11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#f17800"
+        android:text="REFRESH"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/availableboatsinfo3"
+        />
+
 
 
     <EditText
         android:id="@+id/noofriders"
-        android:layout_width="157dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/availableboatsinfo3"
         android:layout_marginLeft="105dp"
