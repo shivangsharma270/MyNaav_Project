@@ -17,35 +17,23 @@
         <entry key="..\:/MyNaav_Project/app/src/main/res/layout/activity_main.xml" value="0.1956521739130435" />
         <entry key="..\:/MyNaav_Project/app/src/main/res/layout/activity_otpfetch.xml" value="0.1956521739130435" />
         <entry key="..\:/MyNaav_Project/app/src/main/res/layout/activity_user_data.xml" value="0.1956521739130435" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/callbutton.xml" value="0.1725" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/contacticon.xml" value="0.2375" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.1925" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/ic_baseline_menu_open_24.xml" value="0.161" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.156" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/ic_toolbaricon.xml" value="0.238" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/loginicon.xml" value="0.2375" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/logout.xml" value="0.18" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/termsicon.xml" value="0.2375" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/drawable/user.xml" value="0.119" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_available_boats.xml" value="0.2966485507246377" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_bank_details_of_boat_owner.xml" value="0.3333333333333333" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_boat_owner_registeration.xml" value="0.32155797101449274" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_boat_privacy_policy.xml" value="0.302536231884058" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_boatownerwelcomepage.xml" value="0.29936594202898553" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_bottonnav.xml" value="0.26614583333333336" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_details_fetchedof_boat_owner.xml" value="0.27807971014492755" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_home.xml" value="0.2980072463768116" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_home_boat.xml" value="0.27807971014492755" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_otp_fetch_boat.xml" value="0.27395833333333336" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_otpfetch.xml" value="0.2980072463768116" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_user_data.xml" value="0.2980072463768116" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_user_privacy_policy.xml" value="0.302536231884058" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_userboatview.xml" value="0.2966485507246377" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/activity_userprofile.xml" value="0.27807971014492755" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/layout/fragment_home.xml" value="0.302536231884058" />
-        <entry key="..\:/MyNaav_Project1/app/src/main/res/menu/sidemenu.xml" value="0.309375" />
         <entry key="..\:/MyNaav_Project1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1515" />
+        <entry key="..\:/Project/MyNaav/app/src/main/res/layout/activity_bank_details_of_boat_owner.xml" value="0.2" />
+        <entry key="..\:/Project/MyNaav/app/src/main/res/layout/activity_boat_owner_registeration.xml" value="0.2" />
+        <entry key="..\:/Project/MyNaav/app/src/main/res/layout/activity_boat_privacy_policy.xml" value="0.22" />
+        <entry key="..\:/Project/MyNaav/app/src/main/res/layout/activity_boatownerwelcomepage.xml" value="0.22" />
+        <entry key="..\:/Project/MyNaav/app/src/main/res/layout/activity_user_data.xml" value="0.2" />
+        <entry key="..\:/Project/MyNaav/app/src/main/res/layout/activity_user_privacy_policy.xml" value="0.22" />
         <entry key="..\:/Project/MyNaav_Project/app/src/main/res/drawable/gradientcolor.xml" value="0.1785" />
         <entry key="..\:/Project/MyNaav_Project/app/src/main/res/layout/activity_bank_details_of_boat_owner.xml" value="0.1" />
         <entry key="..\:/Project/MyNaav_Project/app/src/main/res/layout/activity_boat_owner_registeration.xml" value="0.2" />
@@ -53,10 +41,16 @@
         <entry key="..\:/Project/MyNaav_Project/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Project/MyNaav_Project/app/src/main/res/layout/activity_otpfetch.xml" value="0.2" />
         <entry key="..\:/Project/MyNaav_Project/app/src/main/res/layout/activity_user_data.xml" value="0.1" />
+        <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.1325" />
+        <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_available_boats.xml" value="0.22" />
         <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_boat_owner_registeration.xml" value="0.14666666666666667" />
+        <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_boat_privacy_policy.xml" value="0.22" />
+        <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_boatownerwelcomepage.xml" value="0.1" />
+        <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_details_fetchedof_boat_owner.xml" value="0.2" />
         <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_user_data.xml" value="0.2" />
+        <entry key="..\:/Project/MyNaav_Project1/app/src/main/res/layout/activity_user_privacy_policy.xml" value="0.22" />
       </map>
     </option>
   </component>

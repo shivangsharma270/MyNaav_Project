@@ -17,19 +17,16 @@
         android:textColor="@color/white"
         android:textSize="25dp" />
 
-    <ScrollView
-        android:id="@+id/ScrollView01"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="240dp">
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#30ffffff"
+        android:id="@+id/list"
+        android:padding="15dp"
+        android:layout_below="@+id/text"
+        android:textAlignment="viewStart"
+        android:layout_margin="10dp"
+        />
 
-        <TextView
-            android:id="@+id/previousrideshow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#ffffff" />
-
-    </ScrollView>
 
 </RelativeLayout>
