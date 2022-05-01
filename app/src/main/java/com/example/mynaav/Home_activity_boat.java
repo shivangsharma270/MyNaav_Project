@@ -45,21 +45,21 @@ public class Home_activity_boat extends AppCompatActivity {
     Button Proceedbtn;
     String exist;
     SharedPreferences sharedPreferencesboat;
-    private static final String SHARED_PREF_NAME="myprefboat";
-    private static final String KEY_NO="mobilenoboat";
+    private static final String SHARED_PREF_NAMEboat="myprefboat";
+    private static final String KEY_NOboat="mobilenoboat";
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_home_boat);
 
 
-        sharedPreferencesboat=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
-        String mobileno=sharedPreferencesboat.getString(KEY_NO,null);
-        if(mobileno!=null){
+        sharedPreferencesboat=getSharedPreferences(SHARED_PREF_NAMEboat,MODE_PRIVATE);
+        String mobilenoboat=sharedPreferencesboat.getString(KEY_NOboat,null);
+        if(mobilenoboat!=null){
             Intent intent=new Intent(Home_activity_boat.this,Boatownerwelcomepage.class);
             startActivity(intent);
         }

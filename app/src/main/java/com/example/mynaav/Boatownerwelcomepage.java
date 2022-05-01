@@ -3,10 +3,12 @@ package com.example.mynaav;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -29,12 +31,20 @@ public class Boatownerwelcomepage extends AppCompatActivity {
     TextView text;
     ListView l;
     long res;
+    SharedPreferences sharedPreferencesboat;
+    private static final String SHARED_PREF_NAMEboat="myprefboat";
+    private static final String KEY_NOboat="mobilenoboat";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_boatownerwelcomepage);
+        sharedPreferencesboat=getSharedPreferences(SHARED_PREF_NAMEboat,MODE_PRIVATE);
+        String boatid=sharedPreferencesboat.getString(KEY_NOboat,null);
         exist="NO RIDES NOW";
-        boatid=getIntent().getStringExtra("boatid");
+        //boatid=("9565467898");
         name="NO USER";
         l= findViewById(R.id.list);
         phonen="NO DETAILS TO DISPLAY";

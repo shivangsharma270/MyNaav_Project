@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -28,6 +30,7 @@ public class BankDetailsOfBoatOwner extends AppCompatActivity {
     String FullName, Age, EmailId, LicenseNo, Address1, Address2, Pincode, BoatSize, BoatStand, Validate;
     EditText AccountNo, BankName, IFSCCode,AccountHolderName,UPIid;
     Button button;
+    TextView tandcboat;
     private String sendurl="https://mynaavproject.000webhostapp.com/boatownerdetailspush.php";
     private RequestQueue requestQueue;
     private static final String TAG=UserData.class.getSimpleName();
@@ -39,6 +42,9 @@ public class BankDetailsOfBoatOwner extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_bank_details_of_boat_owner);
         FullName=getIntent().getStringExtra("FullName");
         Age=getIntent().getStringExtra("Age");
@@ -53,10 +59,20 @@ public class BankDetailsOfBoatOwner extends AppCompatActivity {
         BankName=findViewById(R.id.BankName);
         IFSCCode=findViewById(R.id.IFSCCode);
         Validate="NO";
+        tandcboat=findViewById(R.id.TnCboat);
         AccountHolderName=findViewById(R.id.AccountHolderName);
         UPIid=findViewById(R.id.UPIid);
         button=findViewById(R.id.proceed1);
         requestQueue= Volley.newRequestQueue(getApplicationContext());
+
+
+        tandcboat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),Boat_Privacy_Policy.class);
+                startActivity(intent);
+            }
+        });
 
 
 

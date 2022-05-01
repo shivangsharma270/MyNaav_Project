@@ -37,15 +37,15 @@ public class otp_fetch_boat extends AppCompatActivity {
     Button Verifybtn;
     String getotpbackend, phonen, exist;
     SharedPreferences sharedPreferencesboat;
-    private static final String SHARED_PREF_NAME="myprefboat";
-    private static final String KEY_NO="mobilenoboat";
+    private static final String SHARED_PREF_NAMEboat="myprefboat";
+    private static final String KEY_NOboat="mobilenoboat";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_otp_fetch_boat);
         exist=getIntent().getStringExtra("boatexist");
         Toast.makeText(this, exist, Toast.LENGTH_SHORT).show();
@@ -82,9 +82,7 @@ public class otp_fetch_boat extends AppCompatActivity {
                                         if(task.isSuccessful()){
 
                                             if(exist.equals("1")) {
-                                                SharedPreferences.Editor editor=sharedPreferencesboat.edit();
-                                                editor.putString(KEY_NO,phonen);
-                                                editor.apply();
+
                                                 Intent intent = new Intent(getApplicationContext(), DetailsFetchedofBoatOwner.class);
                                                 startActivity(intent);
                                             }

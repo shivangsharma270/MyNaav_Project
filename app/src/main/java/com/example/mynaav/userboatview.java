@@ -72,7 +72,7 @@ public class userboatview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //getSupportActionBar().hide();
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_userboatview);
 
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);

@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -31,6 +32,7 @@ public class UserData extends AppCompatActivity {
     Button Senddata;
     String phoneofuser;
     Spinner genderofuser;
+    TextView tandc;
     private String sendurl="https://mynaavproject.000webhostapp.com/get_data.php";
     private RequestQueue requestQueue;
     private static final String TAG=UserData.class.getSimpleName();
@@ -55,7 +57,17 @@ public class UserData extends AppCompatActivity {
         addressofuser=findViewById(R.id.addressline2);
         pincodeofuser=findViewById(R.id.pincode);
         Senddata=findViewById(R.id.VERIFY);
+        tandc=findViewById(R.id.TnCuser);
         requestQueue= Volley.newRequestQueue(getApplicationContext());
+
+
+        tandc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),User_Privacy_Policy.class);
+                startActivity(intent);
+            }
+        });
 
         Senddata.setOnClickListener(new View.OnClickListener() {
             @Override
