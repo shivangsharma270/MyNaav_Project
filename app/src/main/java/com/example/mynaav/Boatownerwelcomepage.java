@@ -12,6 +12,10 @@ import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import android.widget.Toast;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +31,7 @@ import java.lang.*;
 import java.util.ArrayList;
 
 public class Boatownerwelcomepage extends AppCompatActivity {
-    String boatid, exist, name, phonen;
+    String boatid , exist, name, phonen;
     TextView text;
     ListView l;
     long res;
@@ -42,11 +46,11 @@ public class Boatownerwelcomepage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_boatownerwelcomepage);
         sharedPreferencesboat=getSharedPreferences(SHARED_PREF_NAMEboat,MODE_PRIVATE);
-        String boatid=sharedPreferencesboat.getString(KEY_NOboat,null);
+        String boat=sharedPreferencesboat.getString(KEY_NOboat,null);
         exist="NO RIDES NOW";
-        //boatid=("9565467898");
         name="NO USER";
         l= findViewById(R.id.list);
+        boatid = getIntent().getStringExtra("boatid");
         phonen="NO DETAILS TO DISPLAY";
         String url="https://mynaavproject.000webhostapp.com/consumedboatfetch.php";
         getJSON(url);
@@ -142,11 +146,9 @@ public class Boatownerwelcomepage extends AppCompatActivity {
 
             //getting the name from the json object and putting it inside string array
         }
+        Collections.reverse(list);
         final ArrayAdapter<String > adapter= new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
         l.setAdapter(adapter);
-
-        //String url="https://mynaavproject.000webhostapp.com/retreiveuserdata.php";
-        //getJSON1(url);
 
     }
 
