@@ -39,6 +39,7 @@ public class Boatownerwelcomepage extends AppCompatActivity {
     private static final String SHARED_PREF_NAMEboat="myprefboat";
     private static final String KEY_NOboat="mobilenoboat";
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(getWindow().FEATURE_NO_TITLE);
