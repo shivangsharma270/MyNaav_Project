@@ -71,9 +71,9 @@ public class AvailableBoats extends AppCompatActivity implements PaymentResultLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        //requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_available_boats);
         //Toast.makeText(this,currentDate, Toast.LENGTH_SHORT).show();
         //Toast.makeText(getApplicationContext(), String.valueOf(timeMilli), Toast.LENGTH_LONG).show();

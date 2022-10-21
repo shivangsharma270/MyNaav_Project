@@ -33,6 +33,7 @@ public class UserData extends AppCompatActivity {
     String phoneofuser;
     Spinner genderofuser;
     TextView tandc;
+
     private String sendurl="https://mynaavproject.000webhostapp.com/get_data.php";
     private RequestQueue requestQueue;
     private static final String TAG=UserData.class.getSimpleName();
@@ -44,9 +45,9 @@ public class UserData extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        //requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_user_data);
 
         fullnameofuser=findViewById(R.id.fullname);
@@ -158,4 +159,8 @@ public class UserData extends AppCompatActivity {
         request.setRetryPolicy(new DefaultRetryPolicy(10000,1,1.0f));
         requestQueue.add(request);
     }
+
+
+
+
 }

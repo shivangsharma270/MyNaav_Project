@@ -8,7 +8,6 @@
     tools:context=".userboatview">
 
 
-
     <ImageView
         android:id="@+id/Boatlogo"
         android:layout_width="299dp"

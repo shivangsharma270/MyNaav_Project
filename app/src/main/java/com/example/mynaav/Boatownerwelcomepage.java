@@ -42,9 +42,9 @@ public class Boatownerwelcomepage extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        //requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_boatownerwelcomepage);
         sharedPreferencesboat=getSharedPreferences(SHARED_PREF_NAMEboat,MODE_PRIVATE);
         String boat=sharedPreferencesboat.getString(KEY_NOboat,null);
@@ -68,10 +68,6 @@ public class Boatownerwelcomepage extends AppCompatActivity {
             protected void onPreExecute() {
                 super.onPreExecute();
             }
-
-            //this method will be called after execution
-            //so here we are displaying a toast with the json string
-
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
@@ -82,8 +78,6 @@ public class Boatownerwelcomepage extends AppCompatActivity {
                 }
 
             }
-
-            //in this method we are fetching the json string
             @Override
             protected String doInBackground(Void... voids) {
 

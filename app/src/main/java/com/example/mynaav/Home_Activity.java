@@ -54,10 +54,12 @@ public class Home_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        requestWindowFeature(getWindow().FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+
+        //requestWindowFeature(getWindow().FEATURE_NO_TITLE);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_home);
         sharedPreferences=getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
         String mobileno=sharedPreferences.getString(KEY_NO,null);

@@ -101,7 +101,7 @@
         android:layout_marginTop="140dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="100dp"
-        android:text="Are you a Boat Owner?"
+        android:text="Boat Owner hai to idhar click krle"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
